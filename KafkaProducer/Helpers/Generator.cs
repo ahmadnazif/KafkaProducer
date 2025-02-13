@@ -9,7 +9,7 @@ public static class Generator
         random = new();
     }
 
-    public static ProduceSms GenerateOneSms(string topic)
+    public static ProduceSmsRequest GenerateOneSms(string topic)
     {
         return new(topic, new()
         {

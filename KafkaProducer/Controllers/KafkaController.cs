@@ -10,22 +10,6 @@ public class KafkaController(ILogger<KafkaController> logger, IProducerService p
 	private readonly ILogger<KafkaController> logger = logger;
     private readonly IProducerService producer = producer;
 
-    //  [HttpPost("produce")]
-    //  public async Task<ActionResult<ResponseBase>> Produce([FromBody] ProduceMessage message)
-    //  {
-    //try
-    //{
-    //	return await producer.ProduceAsync(message);
-    //}
-    //catch (Exception ex)
-    //{
-    //	logger.LogError(ex.Message);
-    //	return new ResponseBase(false, ex.Message);
-    //}
-    //  }
-
-
-
     [HttpPost("produce-one-random-sms")]
     public async Task<ActionResult<ResponseBase>> Produce()
     {
