@@ -7,7 +7,7 @@ public class ProducerService(ILogger<ProducerService> logger, IProducer<Null, Sm
     private readonly ILogger<ProducerService> logger = logger;
     private readonly IProducer<Null, SmsBase> producer = producer;
 
-    public async Task<ResponseBase> ProduceAsync(ProduceSms message, CancellationToken ct)
+    public async Task<ResponseBase> ProduceSmsAsync(ProduceSms message, CancellationToken ct)
     {
         Message<Null, SmsBase> msg = new() { Value = message.Message };
         var dr = await producer.ProduceAsync(message.Topic, msg, ct);
@@ -23,5 +23,5 @@ public class ProducerService(ILogger<ProducerService> logger, IProducer<Null, Sm
 
 public interface IProducerService
 {
-    Task<ResponseBase> ProduceAsync(ProduceSms message, CancellationToken ct = default);
+    Task<ResponseBase> ProduceSmsAsync(ProduceSms message, CancellationToken ct = default);
 }

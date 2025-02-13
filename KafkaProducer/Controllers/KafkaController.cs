@@ -32,7 +32,7 @@ public class KafkaController(ILogger<KafkaController> logger, IProducerService p
         try
         {
             var pro = Generator.GenerateOneSms("Topic1");
-            return await producer.ProduceAsync(pro);
+            return await producer.ProduceSmsAsync(pro);
         }
         catch (Exception ex)
         {
