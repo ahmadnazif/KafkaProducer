@@ -15,6 +15,7 @@ builder.Services.AddSingleton(sp =>
         BootstrapServers = config["Kafka:BootstrapServers"],
     };
 
+    // Message is internally serialized using SmsSerializer
     return new ProducerBuilder<Null, SmsBase>(clientConfig).SetValueSerializer(new SmsSerializer()).Build();
 });
 
